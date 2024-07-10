@@ -11,7 +11,7 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
 from langchain_core.runnables import RunnableLambda
-from my_tools import tools
+from SCagent.agent.my_tools import tools
 
 #Prompt
 primary_assistant_prompt = ChatPromptTemplate.from_messages(
