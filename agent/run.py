@@ -7,7 +7,7 @@ from langchain_community.tools.tavily_search import TavilySearchResults
 from langchain_core.messages import HumanMessage
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.prompts import PromptTemplate
-from my_tools import tools
+from agent.scanpy_tools import tools
 from langchain_core.runnables import Runnable, RunnableConfig
 from langchain_groq import ChatGroq
 
@@ -20,11 +20,11 @@ from langgraph.graph import END, StateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
 from langchain_core.runnables import RunnableLambda
 
-import os
-os.environ["GROQ_API_KEY"] = "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"
-from my_tools import tools
+#import os
+#os.environ["GROQ_API_KEY"] = "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"
+from agent.scanpy_tools import tools
 
-import my_functions as my
+import agent.agent_functions as my
 #primary_assistant_prompt, State, Assistant, create_tool_node_with_fallback, _print_event, handle_tool_error, graph
 
 import uuid

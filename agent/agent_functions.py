@@ -11,8 +11,10 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.graph import END, StateGraph
 from langgraph.prebuilt import ToolNode, tools_condition
 from langchain_core.runnables import RunnableLambda
-from SCagent.agent.my_tools import tools
+from agent.scanpy_tools import tools
 
+import os
+os.environ["GROQ_API_KEY"] = "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"
 #Prompt
 primary_assistant_prompt = ChatPromptTemplate.from_messages(
     [
@@ -22,7 +24,8 @@ primary_assistant_prompt = ChatPromptTemplate.from_messages(
             "(1) a function to load downloaded data. Use load if the question directly asks for it."
             "(2) a function to get variables and observations. Use get_var_obs if the question directly asks for it."
             "(3) a function to perform quality control. Use calculate_qc_metrics if the question directly asks for it."
-            "(4) a function to plot a violin plot. Use plot_violin_plot if the question directly asks for it. Otherwise, answer directly.",
+            "(4) a function to plot a violin plot. Use plot_violin_plot if the question directly asks for it. Otherwise, answer directly."
+            "If those 4 functions are not specifically requested, just reply as you would normally.",
         ),
         ("placeholder", "{messages}"),
     ]
