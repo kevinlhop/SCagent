@@ -61,13 +61,28 @@ const sendMessage = async (message) => {
     const result = await response.json();
 
     // display the agent message
-    message_box.innerHTML += `
+  
+    
+    if (result.image_url) {
+      message_box.innerHTML += `
             <div class="message">
                 <div class="content" id="agent_${token}"> 
                     Agent: ${result.agent_output}
+                    <div class="image-container">
+                       <img src="${result.image_url}" alt="Agent Image" class="agent-image">
+                    </div>
                 </div>
             </div>
         `;
+    } else {
+      message_box.innerHTML += `
+        <div class="message">
+          <div class="content" id="agent_${token}"> 
+              Agent: ${result.agent_output}
+          </div>
+        </div>
+      `;
+    }
 
 }
 
