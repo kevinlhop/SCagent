@@ -7,7 +7,12 @@ import anndata as ad
 import io
 import base64
 import uuid
-sc.settings.figdir = '/Users/kevinlei/Desktop/llmchatbot/SCagent/static/figures/'
+import os
+cwd = os.getcwd()
+print(cwd)
+print(cwd+'/static/figures/')
+sc.settings.figdir = cwd + '/static/figures/'
+
 
 global PATH_LIST
 PATH_LIST = []
