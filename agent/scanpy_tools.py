@@ -138,7 +138,7 @@ def feature_selection():
     global adata
     global PATH_LIST
     new_id = uuid.uuid1()
-    path = "./static/figures/hvg" + str(new_id) +".png"
+    path = "./static/figures/filter_genes_dispersion" + str(new_id) +".png"
     PATH_LIST.append(path)
     sc.pp.highly_variable_genes(adata, n_top_genes=2000, batch_key="sample")
     sc.pl.highly_variable_genes(adata, show=False, save=str(new_id) +".png")
@@ -171,7 +171,7 @@ def compute_neighbor_plot():
     global adata
     global PATH_LIST
     new_id = uuid.uuid1()
-    path = "./static/figures/neighborhood" + str(new_id) +".png"
+    path = "./static/figures/umap" + str(new_id) +".png"
     PATH_LIST.append(path)
     sc.pp.neighbors(adata)
     sc.tl.umap(adata)
@@ -191,7 +191,7 @@ def clustering():
     global adata
     global PATH_LIST
     new_id = uuid.uuid1()
-    path = "./static/figures/UMAP(doublet)" + str(new_id) +".png"
+    path = "./static/figures/umap" + str(new_id) +".png"
     PATH_LIST.append(path)
     # Using the igraph implementation and a fixed number of iterations can be significantly faster, especially for larger datasets
     sc.tl.leiden(adata, flavor="igraph", n_iterations=2)
@@ -207,7 +207,7 @@ def clustering():
         save=str(new_id) +".png"
     )
     new_id = uuid.uuid1()
-    path = "./static/figures/UMAP(log)" + str(new_id) +".png"
+    path = "./static/figures/umap" + str(new_id) +".png"
     PATH_LIST.append(path)
     sc.pl.umap(
         adata,
