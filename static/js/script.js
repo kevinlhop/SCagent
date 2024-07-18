@@ -16,9 +16,7 @@ const message_id = () => {
     return BigInt(`0b${unix}${random_bytes}`).toString();
 };
 
-const handle_ask = async () => {
-    message_input.style.height = `80px`;
-  
+const handle_ask = async () => {  
     window.scrollTo(0, 0);
     let message = message_input.value;
   
