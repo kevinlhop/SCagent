@@ -72,6 +72,7 @@ body, html {
     cursor: pointer;
     transition: background-color 0.3s ease;
     margin: 5px;
+    transform: rotate(270deg);
 }
 
 #send-button:hover {
